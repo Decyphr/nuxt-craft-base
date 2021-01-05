@@ -1,0 +1,27 @@
+.nav-breadcrumbs {
+  display: block;
+  padding: 10px 0;
+  position: relative;
+  @include responsive-font(16px, 16px);
+  @extend %clearfix;
+  width: 100%;
+
+  li {
+    display: inline-block;
+    color: $black;
+    font-weight: 300;
+    @extend %primary-font;
+
+    &.current-page {
+      font-style: italic;
+      color: $black;
+    }
+
+    a {
+      color: $black;
+      font-weight: 700;
+      padding-right: 2px;
+      padding-left: 2px;
+    }
+  }
+}

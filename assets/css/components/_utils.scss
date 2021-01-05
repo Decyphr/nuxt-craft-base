@@ -1,0 +1,63 @@
+.table-container {
+  display: table;
+  width: 100%;
+}
+
+.position-left {
+  @extend %position-left-margin;
+
+  @include mq($from: small) {
+    float: left;
+  }
+}
+
+.position-right {
+  @extend %position-right-margin;
+
+  @include mq($from: small) {
+    float: right;
+  }
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  position: relative;
+  padding-left: $small-container-padding;
+  padding-right: $small-container-padding;
+
+  @include mq($from: medium) {
+    padding-left: $large-container-padding;
+    padding-right: $large-container-padding;
+  }
+
+  &.container-sidebar {
+    max-width: 500px;
+  }
+}
+
+.clear {
+  @extend %clearfix;
+}
+
+.error {
+  color: $error;
+}
+
+.uc {
+  text-transform: uppercase;
+}
+
+.is-vishidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.text-center {
+  text-align: center;
+}

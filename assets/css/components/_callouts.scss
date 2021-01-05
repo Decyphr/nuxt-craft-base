@@ -1,0 +1,38 @@
+.callouts {
+  @include responsive-element(margin-top, 40px, 60px, 60px);
+  @include responsive-element(margin-bottom, 40px, 60px, 60px);
+  @include flex-grid(
+    $col-class: "callout-column",
+    $col-number: 1,
+    $gutter-v: 20px,
+    $gutter-h: 20px,
+    $until: small
+  );
+  @include flex-grid(
+    $col-class: "callout-column",
+    $col-number: 2,
+    $gutter-v: 50px,
+    $gutter-h: 80px,
+    $from: small,
+    $until: medium
+  );
+  @include flex-grid(
+    $col-class: "callout-column",
+    $col-number: 3,
+    $gutter-v: 0px,
+    $gutter-h: 30px,
+    $from: medium
+  );
+}
+
+.callout {
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 30px;
+  height: 100%;
+  text-align: center;
+
+  h2 {
+    @include responsive-font(20px, 30px);
+  }
+}

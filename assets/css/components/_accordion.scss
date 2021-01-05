@@ -1,0 +1,96 @@
+.block-accordion {
+  margin: 45px 0;
+  padding: 0 0;
+
+  & + .block-accordion {
+    margin-top: -35px;
+  }
+
+  .accordion-toggle {
+    display: block;
+    width: 100%;
+
+    button {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 10px;
+      position: relative;
+      font-weight: 300;
+      padding: 10px 60px 10px 15px;
+      color: $black;
+      text-transform: uppercase;
+      background: #ccc;
+      border: 0;
+      width: 100%;
+      @include responsive-font(16px, 30px);
+      text-align: left;
+      transition: color 0.2s, background-color 0.2s, border 0.2s;
+
+      &::before {
+        content: "+";
+        font-family: fontawesome;
+        @include responsive-font(40px, 40px);
+        font-weight: 100;
+        color: $black;
+        display: block;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 40px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transition: all 0.3s;
+        font-weight: 700;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $black;
+        color: $white;
+
+        &::before {
+          color: $white;
+        }
+      }
+    }
+
+    &.open {
+      button {
+        color: $white;
+        background: $black;
+        border-bottom: 0;
+
+        &::before {
+          content: "\2013";
+        }
+      }
+
+      & + .accordion-content {
+        display: block;
+      }
+    }
+  }
+
+  .accordion-content {
+    display: none;
+    border-top: 0;
+    font-weight: 500;
+    background-color: $white;
+    @include responsive-font(14px, 17px);
+
+    *:first-child {
+      margin-top: 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+
+    .accordion-background {
+      background-color: $white;
+      padding: 20px 30px;
+    }
+  }
+}

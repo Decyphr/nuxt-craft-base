@@ -1,0 +1,141 @@
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: rgba(#000, 0.5);
+  z-index: 50;
+
+  &.show {
+    display: block;
+  }
+}
+
+.off-canvas-slidebar {
+  height: 100%; /* 100% Full-height */
+  width: 320px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 3000; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: -320px;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 0px; /* Place content 60px from the top */
+  transition: right 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
+  .off-canvas-nav {
+    display: none;
+  }
+
+  &.open {
+    right: 0;
+
+    .off-canvas-nav {
+      display: block;
+    }
+  }
+}
+
+.off-canvas-nav {
+  .off-canvas-nav-container {
+    > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      > li {
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid $white;
+        position: relative;
+
+        &.open {
+          & > ul {
+            display: block;
+          }
+
+          button {
+            &.is-vishidden {
+              &::after {
+                content: "\f077";
+                color: $white;
+              }
+            }
+          }
+        }
+
+        a {
+          padding: 16px;
+          display: block;
+          color: #fff;
+          position: relative;
+
+          &:hover,
+          &:focus {
+            text-decoration: none;
+          }
+        }
+
+        > button {
+          &.is-vishidden {
+            display: block;
+            border-radius: 0;
+            position: absolute !important;
+            width: 48px !important;
+            height: 48px !important;
+            background: none;
+            top: 0;
+            right: 0;
+            clip: inherit;
+            clip: unset !important;
+            border-left: 1px solid $white;
+
+            &::after {
+              content: "\f078";
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              color: $white;
+              @include responsive-font(24px, 24px);
+            }
+          }
+        }
+
+        ul {
+          display: none;
+          margin-left: 0;
+          padding-left: 25px;
+          border-top: 1px solid $white;
+
+          li {
+            padding: 0;
+            margin: 0;
+            border-bottom: 0px;
+            list-style: none;
+
+            a {
+              padding: 10px;
+              @include responsive-font(16px, 16px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .search-form {
+    padding: 10px;
+
+    input {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    button {
+      margin-top: 0;
+      float: right;
+    }
+  }
+}

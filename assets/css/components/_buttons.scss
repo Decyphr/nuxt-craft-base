@@ -1,0 +1,81 @@
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  @include responsive-font(16px, 16px);
+  border-radius: 0;
+  font-weight: normal;
+  transition: color 0.2s, background-color 0.2s, border 0.2s;
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: #000;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: disabled;
+    opacity: 0.65;
+    box-shadow: non;
+  }
+}
+
+a.btn {
+  &.disabled,
+  fieldset[disabled] & {
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+  }
+}
+
+// Alternate buttons
+// --------------------------------------------------
+
+// Arguments are button text color, button background color, button border color
+.btn,
+.btn-default {
+  @include button-plain(#000, #eee, #000);
+  @include button-highlight(#000, #fff, #000);
+}
+.btn-primary {
+  @include button-plain(#000, #fff, #000);
+  @include button-highlight(#000, #eee, #000);
+}
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

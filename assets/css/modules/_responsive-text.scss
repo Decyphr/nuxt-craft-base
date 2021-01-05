@@ -1,0 +1,38 @@
+@mixin responsive-font($min, $max, $breakpoints: $mq-breakpoints) {
+  @if unit($min) == "px" {
+    $max: $max / 10;
+    $min: $min / 10;
+  } @else if unit($min) == "rem" {
+  } @else {
+    @warn "Make sure `$min and $max` are in px or rem.";
+  }
+
+  $fontDifference: strip-unit($max) - strip-unit($min);
+  $min: strip-unit($min) + 0rem;
+  $max: strip-unit($max) + 0rem;
+
+  $tinyMinusOne: mq-get-breakpoint-width(tiny) - 1px;
+  $smallMinusOne: mq-get-breakpoint-width(small) - 1px;
+  $mediumMinusOne: mq-get-breakpoint-width(medium) - 1px;
+  $largeMinusOne: mq-get-breakpoint-width(large) - 1px;
+
+  @include mq($until: $tinyMinusOne) {
+    font-size: $min;
+  }
+
+  @include mq($from: tiny, $until: $smallMinusOne) {
+    font-size: $min + ($fontDifference / 4);
+  }
+
+  @include mq($from: small, $until: $mediumMinusOne) {
+    font-size: $min + (($fontDifference / 4) + ($fontDifference / 4));
+  }
+
+  @include mq($from: medium, $until: $largeMinusOne) {
+    font-size: $max - ($fontDifference / 4);
+  }
+
+  @include mq($from: large) {
+    font-size: $max;
+  }
+}

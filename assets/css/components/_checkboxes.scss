@@ -1,0 +1,185 @@
+.freeform-field-type--checkbox_group,
+.freeform-field-type--radio_group {
+  .form-check-inline {
+    label {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+/* This is to fix an issue with IE and having singular checkboxes unclickable without this css. Height and width can be changed based on checkbox size */
+.custom-checkbox .freeform-input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  z-index: 5;
+}
+
+.custom-checkbox input[type="checkbox"],
+.custom-radio input[type="radio"] {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  position: absolute;
+  width: auto;
+
+  & + span {
+    padding-left: 30px;
+    position: relative;
+    display: inline-block;
+    line-height: 1.4;
+    margin-bottom: 2px;
+  }
+}
+
+.custom-checkbox input[type="checkbox"] {
+  & + span::before {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid $dk-gray;
+    background: $white;
+    content: "";
+    color: transparent;
+    font-size: 0.7em;
+    line-height: 1.6;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  &:focus + span::before {
+    background: $white;
+  }
+
+  &:checked + span::before {
+    color: $white;
+    background: $white;
+    border: 1px solid $black;
+  }
+
+  &:checked + span::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 14px;
+    height: 14px;
+    background: $black;
+  }
+}
+
+.custom-radio input[type="radio"] {
+  & + span::before {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid $dk-gray;
+    background: $white;
+    color: $white;
+    content: "";
+    font-size: 0.7em;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 100%;
+  }
+
+  &:focus + span::before {
+    border-color: $dk-gray;
+  }
+
+  &:checked + span::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 14px;
+    height: 14px;
+    background: $black;
+    border-radius: 50%;
+  }
+}
+
+.custom-checkbox.custom-mailing-list {
+  span {
+    padding-left: 2em;
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0.2em;
+      width: 22px;
+      height: 22px;
+      border: 1px solid $dk-gray;
+      background: $white;
+      font-family: fontawesome;
+      content: "\f00c";
+      color: transparent;
+      font-size: 0.7em;
+      line-height: 1.6;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    &.checked::before {
+      color: $white;
+      background: #333;
+      border: 1px solid #333;
+    }
+  }
+
+  label {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    z-index: 500;
+  }
+
+  input {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    z-index: 65;
+  }
+}
+
+.invalid {
+  .custom-select {
+    select {
+      color: $error;
+      border-color: $error;
+
+      &:focus {
+        border-color: $error;
+      }
+    }
+  }
+
+  .custom-checkbox {
+    span {
+      color: $error;
+    }
+
+    input[type="checkbox"] + span::before {
+      border-color: $error;
+    }
+  }
+
+  .custom-radio {
+    span {
+      color: $error;
+    }
+
+    input[type="radio"] + span::before {
+      border-color: $error;
+    }
+  }
+}

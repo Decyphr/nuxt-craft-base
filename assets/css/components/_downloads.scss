@@ -1,0 +1,84 @@
+.block-download-callout {
+  display: block;
+  width: 100%;
+  line-height: 1;
+  background: $lt-gray;
+  padding: 20px;
+  position: relative;
+  @extend %block-margin;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .table-container {
+    padding-left: 25px;
+    background-color: $black;
+    height: 100%;
+    @include responsive-font(24px, 24px);
+
+    @include mq(450px) {
+      padding-left: 10px;
+    }
+  }
+
+  .download-icon-container {
+    padding: 15px 20px 15px 20px;
+    width: 90px;
+    display: table-cell;
+    vertical-align: middle;
+    background: $white;
+    color: $black;
+    @include responsive-font(16px, 16px);
+
+    @include mq(400px) {
+      width: 83px;
+    }
+
+    .download-icon {
+      display: block;
+      text-align: center;
+    }
+
+    span {
+      @include responsive-font(42px, 42px);
+      line-height: 42px;
+
+      @include mq(400px) {
+        @include responsive-font(38px, 38px);
+        line-height: 58px;
+      }
+    }
+  }
+
+  .download-copy {
+    display: table-cell;
+    vertical-align: middle;
+    @include responsive-font(24px, 34px);
+    color: $white;
+    font-weight: 500;
+    line-height: 25px;
+    padding: 10px;
+
+    @include responsive-font(16px, 24px);
+
+    .callout-link {
+      margin-top: 10px;
+
+      @include responsive-font(14px, 18px);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    .table-container {
+      background: #999;
+    }
+
+    .download-icon-container {
+      background: $white;
+    }
+  }
+}

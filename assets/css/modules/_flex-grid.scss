@@ -1,0 +1,33 @@
+@mixin flex-grid(
+  $col-class,
+  $col-number,
+  $gutter-v: 0px,
+  $gutter-h: 0px,
+  $from: false,
+  $until: false
+) {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+
+  @include flex-grid-mq($from, $until) {
+    margin-left: -#{$gutter-h};
+  }
+
+  .#{$col-class} {
+    @include flex-grid-mq($from, $until) {
+      margin-left: $gutter-h;
+      margin-top: $gutter-v / 2;
+      margin-bottom: $gutter-v / 2;
+      flex: 0 0 calc((100% / #{$col-number}) - #{$gutter-h});
+      max-width: calc((100% / #{$col-number}) - #{$gutter-h});
+      width: calc((100% / #{$col-number}) - #{$gutter-h});
+    }
+  }
+}
+
+@mixin flex-grid-mq($from-width: false, $until-width: false) {
+  @include mq($from: $from-width, $until: $until-width) {
+    @content;
+  }
+}

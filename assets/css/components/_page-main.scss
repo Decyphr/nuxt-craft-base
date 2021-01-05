@@ -1,0 +1,13 @@
+.page-main {
+  padding-top: 72px;
+  @extend %clearfix;
+  overflow: hidden;
+
+  @include mq($from: medium) {
+    padding-top: 176px;
+  }
+}
+
+#content {
+  transition: margin-right 0.5s;
+}

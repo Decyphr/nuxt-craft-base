@@ -1,0 +1,105 @@
+.block-image {
+  display: block;
+  position: relative;
+  z-index: 5;
+  @extend %block-margin;
+
+  &.position-left,
+  &.position-right {
+    max-width: 420px;
+    width: auto;
+    display: table;
+    text-align: center;
+
+    @include mq(small) {
+      //width: calc(50% - #{$large-position-margin});
+      // max-width: 420px;
+    }
+  }
+
+  &.position-full {
+    clear: both;
+  }
+
+  &.position-center {
+    max-width: 100%;
+    margin: 0 auto;
+    clear: both;
+
+    @include mq(small) {
+      max-width: 85%;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.featured-image {
+  @extend %block-margin;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .trigger {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: $black;
+    color: $white;
+    text-align: center;
+    margin-left: 40px;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &::before {
+      content: "\f036";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      line-height: 60px;
+      @include responsive-font(30px, 30px);
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background: $white;
+
+      &::before {
+        color: $black;
+      }
+    }
+
+    &.open {
+      &::before {
+        content: "\f00d";
+      }
+
+      & + .caption {
+        display: block;
+      }
+    }
+  }
+
+  .caption {
+    display: none;
+    padding: 20px 40px;
+    color: $white;
+    background: $black;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}

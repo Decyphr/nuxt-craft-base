@@ -1,0 +1,131 @@
+.block-featured {
+  background: $lt-gray;
+  @extend %block-margin;
+  clear: both;
+  padding: 15px;
+
+  @include mq(small) {
+    padding: 25px;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    color: $md-primary-color;
+  }
+
+  &.dark-bg {
+    background: $dk-gray;
+    color: $white;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $white;
+    }
+  }
+
+  .block-featured-container {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+
+    @include mq(medium) {
+      flex-flow: row;
+    }
+
+    .block-featured-intro {
+      flex: 0 0 100%;
+      width: 100%;
+      padding-top: 15px;
+
+      @include mq(medium) {
+        flex: 0 0 30%;
+        width: 30%;
+        padding-right: 30px;
+      }
+    }
+
+    .block-featured-content {
+      flex: 0 0 100%;
+      width: 100%;
+
+      @include mq(medium) {
+        flex: 0 0 70%;
+        width: 70%;
+      }
+
+      @include flex-grid(
+        $col-class: "block-featured-content-column",
+        $col-number: 1,
+        $gutter-v: 30px,
+        $gutter-h: 0px,
+        $until: 650px
+      );
+      @include flex-grid(
+        $col-class: "block-featured-content-column",
+        $col-number: 2,
+        $gutter-v: 30px,
+        $gutter-h: 30px,
+        $from: 650px
+      );
+
+      .block-featured-content-item {
+        height: 100%;
+
+        > a {
+          height: 100%;
+          color: $black;
+          font-weight: 300;
+          background: $white;
+          padding: 30px;
+          display: block;
+          width: 100%;
+          transition: border-color 0.2s;
+
+          &:hover,
+          &:focus {
+            border-color: $md-primary-color;
+
+            .callout-link {
+              color: $lt-secondary-color;
+
+              span {
+                color: $lt-secondary-color;
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+
+        > a:hover {
+          text-decoration: none;
+
+          .callout-link {
+            color: $lt-secondary-color;
+          }
+        }
+      }
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        color: $lt-primary-color;
+        @include responsive-font(22px, 22px);
+        margin-bottom: 10px;
+
+        & + p {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

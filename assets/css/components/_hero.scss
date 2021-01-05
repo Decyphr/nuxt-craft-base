@@ -1,0 +1,94 @@
+.hero {
+  background: #d8d8d8;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: $max-width;
+  margin: 0 auto;
+  position: relative;
+  padding-left: $small-container-padding;
+  padding-right: $small-container-padding;
+
+  @include mq($from: medium) {
+    padding-left: $large-container-padding;
+    padding-right: $large-container-padding;
+  }
+}
+
+.hero-callout {
+  @include responsive-element(margin-top, 40px, 100px, 100px);
+  @include responsive-element(margin-bottom, 40px, 100px, 100px);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+  background: rgba(#444, 0.75);
+  padding: 40px 60px;
+  @include responsive-element(padding-top, 20px, 40px, 40px);
+  @include responsive-element(padding-bottom, 20px, 40px, 40px);
+  @include responsive-element(padding-left, 30px, 60px, 60px);
+  @include responsive-element(padding-right, 30px, 60px, 60px);
+  color: $white;
+  border: 1px solid #333;
+
+  h1 {
+    @include responsive-font(42px, 50px);
+    text-align: center;
+    color: $white;
+  }
+
+  p {
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 40px;
+  }
+
+  .buttons {
+    text-align: center;
+  }
+}
+
+.interior-hero {
+  position: relative;
+  overflow: hidden;
+
+  .responsive-bg-image {
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+
+      width: auto;
+      height: auto;
+
+      max-height: none;
+      max-width: none;
+
+      min-height: 100%;
+      min-width: 100%;
+      z-index: 1;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-flow: center;
+    align-items: center;
+    height: 250px;
+    z-index: 5;
+
+    @include mq(small) {
+      height: 350px;
+    }
+
+    h1 {
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+}

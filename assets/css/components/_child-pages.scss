@@ -1,0 +1,77 @@
+.block-child-pages {
+  justify-content: space-between;
+  clear: both;
+  @extend %block-margin;
+  @include flex-grid(
+    $col-class: "block-child-page-column",
+    $col-number: 1,
+    $gutter-v: 30px,
+    $gutter-h: 30px,
+    $until: small
+  );
+  @include flex-grid(
+    $col-class: "block-child-page-column",
+    $col-number: 2,
+    $gutter-v: 30px,
+    $gutter-h: 30px,
+    $from: small
+  );
+
+  .block-child-page {
+    height: 100%;
+    display: block;
+
+    figure {
+      margin: 0;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      display: block;
+      color: $white;
+      height: 100%;
+      background-color: #eee;
+      transition: background-color 0.2s, color 0.2s;
+      padding: 10px;
+
+      h3,
+      h4,
+      p {
+        color: $black;
+        transition: color 0.2s;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $black;
+
+        h3,
+        h4 {
+          color: $white;
+        }
+
+        p {
+          color: $white;
+        }
+      }
+
+      .block-child-page-content {
+        padding: 15px;
+
+        @include mq($from: small) {
+          padding: 25px;
+        }
+      }
+
+      h3,
+      h4 {
+        color: $black;
+      }
+    }
+  }
+}

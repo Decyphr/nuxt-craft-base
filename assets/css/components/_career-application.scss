@@ -1,0 +1,56 @@
+.freeform-pages {
+  li {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding-left: 0;
+    padding: 10px 20px;
+    vertical-align: middle;
+
+    a {
+      color: red;
+    }
+  }
+}
+
+.freeform-row {
+  .freeform-column {
+    .add {
+      background: red;
+      font-weight: bold;
+      @include responsive-font(24px, 24px);
+      line-height: 1.5;
+      color: #fff;
+      border: none;
+      padding: 0px 20px 5px;
+    }
+  }
+}
+
+.careerForm {
+  .freeform-field-type--submit {
+    .btn {
+      margin-bottom: 0;
+
+      & + .btn {
+        margin-bottom: 0;
+      }
+
+      &:first-of-type() {
+        margin-right: 0;
+      }
+    }
+
+    button[name="form_previous_page_button"] {
+      background: $white;
+      border-color: $black;
+      color: $black;
+
+      &:hover,
+      &:focus {
+        background: $black;
+        color: $white;
+      }
+    }
+  }
+}

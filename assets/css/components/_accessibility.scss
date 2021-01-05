@@ -1,0 +1,43 @@
+.is-vishidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.skip-link a,
+button.skip-link {
+  color: $white;
+  background: $black;
+  padding: 3px 15px;
+  width: auto;
+  display: block;
+  border-radius: 0 0 5px 5px;
+  position: absolute;
+  top: 0;
+  left: 45px;
+  z-index: 4500;
+  @include responsive-font(16px, 16px);
+  font-weight: 400;
+  text-transform: uppercase;
+  left: -10000px;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $white;
+    left: 45px;
+  }
+}
+
+button.skip-link#close-menu {
+  &:hover,
+  &:focus {
+    position: relative;
+    margin-left: 0;
+    margin-top: 50px;
+  }
+}

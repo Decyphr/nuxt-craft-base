@@ -1,0 +1,264 @@
+.page-header {
+  /*
+   * In general, avoid styling this element. It serves as a wrapper for
+   * .page-header-* components to show/hide them based on the browser width and
+   * to absolutely or fixed(ly?) position them
+   *
+   * This allows us to render the .page-header-* components directly regardless
+   * of the width of the viewport simply by taking them out of the .page-header
+   * element. Useful for the styleguide. Don't hate me. Blame the red-head.
+   */
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
+  transition: right 0.5s;
+
+  &.headroom--not-top {
+    position: fixed;
+    top: 0;
+  }
+
+  /* Default, mobile-first page header setup */
+  .page-header-full {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .page-header-compact {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  /* Hide .page-header-* components according to the width of viewport */
+  @include mq($from: medium) {
+    .page-header-full {
+      display: block;
+    }
+    .page-header-compact {
+      display: none;
+    }
+  }
+}
+
+/*
+ * Full desktop version of the header. All the bells and whistles.
+ */
+.page-header-full {
+  background-color: $white;
+  height: 176px;
+
+  .page-header-full-container {
+    max-width: $max-width;
+    margin: 0 auto;
+    position: relative;
+    padding-left: $large-container-padding;
+    padding-right: $large-container-padding;
+    height: 100%;
+  }
+}
+
+/* Header Nav Primary */
+.header-nav-primary {
+  position: relative;
+  height: 100%;
+
+  .logo {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  > ul {
+    @include responsive-font(20px, 20px);
+    @extend %clearfix;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      line-height: 58px;
+      display: block;
+      float: left;
+      position: relative;
+      margin: 0 10px 0 0;
+      height: 60px;
+
+      &:last-child {
+        margin-right: 0;
+
+        ul {
+          right: 0;
+        }
+      }
+
+      &:hover,
+      &:focus,
+      &.open {
+        > a {
+          background: #ccc;
+          text-decoration: none;
+        }
+
+        > ul {
+          display: block;
+        }
+      }
+
+      > a {
+        background: #d8d8d8;
+        border: 1px solid #979797;
+        text-decoration: none;
+        font-weight: normal;
+        display: block;
+        padding: 0 30px;
+        height: 60px;
+      }
+
+      ul {
+        display: none;
+        width: 262px;
+        position: absolute;
+        top: 58px;
+        margin: 0;
+        padding: 7px 0 0 0;
+        padding-top: 7px;
+        z-index: 1000;
+
+        li {
+          display: block;
+          float: none;
+          padding: 16px 23px;
+          line-height: 22px;
+          margin: 0;
+          background: rgba(#666, 0.85);
+
+          &:first-child {
+            padding-top: 30px;
+          }
+
+          &:last-child {
+            padding-bottom: 30px;
+          }
+
+          a {
+            border-right: 0;
+            color: #fff;
+            font-weight: normal;
+
+            &:hover,
+            &:focus {
+              text-decoration: none;
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-aux {
+  position: absolute;
+  top: 30px;
+  right: $large-container-padding;
+}
+
+.header-nav-aux {
+  position: relative;
+  float: left;
+  line-height: 41px;
+
+  ul {
+    @include responsive-font(16px, 16px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 10px 0 0;
+      padding: 0 10px 0 0;
+      border-right: 1px solid #ccc;
+      display: block;
+      float: left;
+
+      a {
+        font-weight: normal;
+      }
+    }
+
+    li:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: none;
+    }
+  }
+}
+
+.search-form {
+  float: right;
+  margin-left: 20px;
+
+  input {
+    width: 200px;
+  }
+}
+
+/*
+ * Compact version of the header. Usually for mobile screens. Use this if adapting
+ * the full desktop version to a mobile-friendly version is unreasonable.
+ */
+.page-header-compact {
+  background: #fff;
+
+  .page-header-compact-container {
+    margin: 0 auto;
+    position: relative;
+    padding-left: $small-container-padding;
+    padding-right: $small-container-padding;
+  }
+}
+
+.header-nav-compact {
+  position: relative;
+  @extend %clearfix;
+
+  .logo {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 135px;
+    line-height: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .off-canvas-trigger {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 2px;
+    background: #d8d8d8;
+    color: #333;
+    border: 1px solid #979797;
+    padding: 2px 20px;
+    @include responsive-font(27px, 27px);
+  }
+}

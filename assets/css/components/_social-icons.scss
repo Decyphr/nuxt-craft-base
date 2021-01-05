@@ -1,0 +1,10 @@
+ul.social-icons {
+  text-align: center;
+  margin: 20px 0 0;
+
+  li {
+    display: inline-block;
+    padding: 0 15px;
+    @include responsive-font(24px, 24px);
+  }
+}

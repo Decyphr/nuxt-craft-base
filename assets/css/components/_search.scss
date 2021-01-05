@@ -1,0 +1,24 @@
+.search-form {
+  input {
+    height: 41px;
+  }
+
+  button {
+    margin-top: -3px;
+  }
+}
+
+.search-listing {
+  @extend %block-margin;
+  @include flex-grid(
+    $col-class: "search-column",
+    $col-number: 1,
+    $gutter-v: 30px,
+    $gutter-h: 0px
+  );
+
+  .search-item {
+    background: $lt-gray;
+    padding: 20px;
+  }
+}

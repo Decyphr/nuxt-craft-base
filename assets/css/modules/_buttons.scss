@@ -1,0 +1,34 @@
+@mixin button-plain($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+}
+
+@mixin button-highlight($color, $background, $border) {
+  &:focus,
+  &:hover,
+  &:active {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+  }
+}
+
+@mixin button-variant($color, $background, $border) {
+  @include button-plain($color, $background, $border);
+  @include button-highlight(
+    $color,
+    darken($background, 10%),
+    darken($border, 12%)
+  );
+}

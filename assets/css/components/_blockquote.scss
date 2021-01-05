@@ -1,0 +1,44 @@
+.block-blockquote {
+  border-top: 2px solid $black;
+  border-bottom: 2px solid $black;
+  padding: 20px;
+  display: block;
+  font-style: italic;
+  text-align: center;
+  position: relative;
+  @extend %block-margin;
+  @include responsive-font(18px, 22px);
+
+  &.position-full {
+    clear: both;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.block-pullquote {
+  &.position-full {
+    clear: both;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  cite {
+    font-weight: 700;
+    color: $black;
+    @include responsive-font(18px, 22px);
+  }
+}
+
+.block-pullquote.position-left,
+.block-blockquote.position-left,
+.block-pullquote.position-right,
+.block-blockquote.position-right {
+  @include mq($from: small) {
+    max-width: calc(50% - #{$large-position-margin});
+  }
+}

@@ -1,0 +1,97 @@
+.page-footer {
+  /*
+   * Avoid styling this element.
+   */
+}
+
+/*
+ * Full desktop version of the footer. All the bells and whistles.
+ */
+.page-footer-main {
+  background: #d8d8d8;
+  text-align: center;
+}
+
+/*
+ *------------------------------------------------------------------------------
+ * Footer Primary
+ *------------------------------------------------------------------------------
+ */
+
+.footer-nav-primary {
+  position: relative;
+  display: inline-block;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 0; // prevent spaces because of inline-block li's
+
+    li {
+      margin: 0 10px 0 0;
+      padding: 0 10px 0 0;
+      border-right: 1px solid #333;
+      display: inline-block;
+
+      a {
+        @include responsive-font(16px, 16px);
+        font-weight: normal;
+      }
+    }
+
+    li:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: none;
+    }
+  }
+}
+
+/*
+ * Bottom of footer
+ */
+.page-footer-bottom {
+  background: #696969;
+  text-align: center;
+}
+
+.footer-nav-bottom {
+  position: relative;
+  display: inline-block;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 0; // prevent spaces because of inline-block li's
+
+    li {
+      margin: 0 10px 0 0;
+      padding: 0 10px 0 0;
+      border-right: 1px solid #000;
+      display: inline-block;
+
+      a,
+      span {
+        @include responsive-font(14px, 14px);
+        font-weight: normal;
+        color: #fff;
+      }
+
+      img {
+        width: 90px;
+        height: 18px;
+        display: inline-block;
+      }
+    }
+
+    li:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: none;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+body.styleguide {
+  padding-bottom: 60px;
+}
+
+.sg-container {
+  @include outer-container;
+  position: relative;
+  padding-left: $large-container-padding;
+  padding-right: $large-container-padding;
+
+  @include mq($until: small) {
+    padding-left: $small-container-padding;
+    padding-right: $small-container-padding;
+  }
+}
+
+.sg-colors {
+  @extend %clearfix;
+
+  li {
+    display: block;
+    float: left;
+    margin: 10px;
+  }
+}
+
+.sg-swatch {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+}
+
+.styleguide {
+  padding-top: 50px;
+
+  main {
+    padding-bottom: 50px;
+  }
+
+  hr {
+    display: block;
+
+    @extend %block-margin;
+    @extend %clearfix;
+  }
+}
+
+.sg-subheading {
+  border-bottom: 2px solid #666;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.sg-element {
+  @extend %clearfix;
+}
+
+.sg-dark-bg {
+  background-color: #898989;
+}
+
+.sg-colors.no-bullets {
+  li {
+    padding-left: 5px;
+  }
+}
+
+.bg {
+  &.black {
+    background: $black;
+  }
+
+  &.white {
+    background: $white;
+  }
+
+  &.error {
+    background: $error;
+  }
+}
